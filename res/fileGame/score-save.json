@@ -1,0 +1,57 @@
+{
+  "Best Score": {
+    "nb":10,
+    "list":[
+      {
+        "score": 109,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 108,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 107,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 106,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 105,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 104,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 103,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 102,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 101,
+        "pseudo": "AAA",
+        "date": 1511222400
+      },
+      {
+        "score": 100,
+        "pseudo": "AAA",
+        "date": 1511222400
+      }
+    ]
+  }
+}

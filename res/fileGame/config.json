@@ -1,0 +1,15 @@
+{
+  "touche":{
+    "haut":"",
+    "bas":"",
+    "droite":"",
+    "gauche":"",
+    "action":"",
+    "action 2":"",
+    "pause":"",
+    "bonus":""
+  },
+  "setting":{
+
+  }
+}
