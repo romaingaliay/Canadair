@@ -13,7 +13,6 @@ public class Canadair {
     public int Avance = 0;
     public double Vitesse = 20;
 
-    public Canadair() {
 
-    }
+
 }

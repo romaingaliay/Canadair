@@ -14,8 +14,7 @@ import static util.Temps.getDateEpoch;
 public class Score {
 
     public static int CalculScore() {
-
-
+        //à completer
         return 0;
     }
 
