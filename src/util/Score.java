@@ -26,9 +26,9 @@ public class Score {
             String bestScores = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "score.json")));
             JSONObject bestScoreJson = new JSONObject(bestScores);
 
-            for (int i = 0; i < bestScoreJson.getJSONObject("Best Score").getInt("nb"); i++)
-                if (bestScoreJson.getJSONObject("Best Score").getJSONArray("list").getJSONObject(i).getInt("score") < minScore) {
-                    minScore = bestScoreJson.getJSONObject("Best Score").getJSONArray("list").getJSONObject(i).getInt("score");
+            for (int i = 0; i < bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getInt("nb"); i++)
+                if (bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getJSONArray("list").getJSONObject(i).getInt("score") < minScore) {
+                    minScore = bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getJSONArray("list").getJSONObject(i).getInt("score");
                     idPetitScore = i;
             }
         }
@@ -46,8 +46,8 @@ public class Score {
             String bestScores = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "score.json")));
             JSONObject bestScoreJson = new JSONObject(bestScores);
 
-            for (int i = 0; i < bestScoreJson.getJSONObject("Best Score").getInt("nb"); i++)
-                if (bestScoreJson.getJSONObject("Best Score").getJSONArray("list").getJSONObject(i).getInt("score") < score)
+            for (int i = 0; i < bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getInt("nb"); i++)
+                if (bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getJSONArray("list").getJSONObject(i).getInt("score") < score)
                     isBestScore = true;
 
         }
@@ -66,8 +66,8 @@ public class Score {
             FileWriter file;
 
             if (isBestScore(score)) {
-                bestScoreJson.getJSONObject("Best Score").getJSONArray("list").remove(CherchePetitScore());
-                bestScoreJson.getJSONObject("Best Score").getJSONArray("list").put(new JSONObject().put("score", score).put("pseudo", pseudo).put("date", getDateEpoch()));
+                bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getJSONArray("list").remove(CherchePetitScore());
+                bestScoreJson.getJSONObject("Best Score").getJSONObject("classic").getJSONArray("list").put(new JSONObject().put("score", score).put("pseudo", pseudo).put("date", getDateEpoch()));
 
                 file = new FileWriter(adresseBestScore);
                 file.write(bestScoreJson.toString());

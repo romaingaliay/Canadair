@@ -1,0 +1,24 @@
+{
+  "main menu":[
+    "classic mode",
+    "adventure mode",
+    {
+      "score":[
+        "classic",
+        "adventure",
+        "return"
+      ]
+    },
+    {
+      "setting":[
+        "resolution",
+        "full screen",
+        "v sync",
+        "show fps",
+        "language",
+        "return"
+      ]
+    },
+    "quit"
+  ]
+}

@@ -21,7 +21,6 @@ public class TestTuto extends BasicGame {
     private int direction = 2;
     private boolean moving = false;
     private Animation[] animations = new Animation[8];
-    private boolean onStair;
 
     public static void main(String[] args) throws SlickException {
         new AppGameContainer(new TestTuto(), 800, 600, false).start();
@@ -79,13 +78,13 @@ public class TestTuto extends BasicGame {
     }
 
     private void updateTrigger() {
-        this.onStair = false;
+        boolean onStair = false;
         for (int objectID = 0; objectID < this.map.getObjectCount(0); objectID++) {
             if (isInTrigger(objectID)) {
                 if ("teleport".equals(this.map.getObjectType(0, objectID))) {
                     teleport(objectID);
                 } else if ("stair".equals(this.map.getObjectType(0, objectID))) {
-                    this.onStair = true;
+                    onStair = true;
                 }
             }
         }
