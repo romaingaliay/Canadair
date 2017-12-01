@@ -10,12 +10,17 @@
       ]
     },
     {
-      "setting":[
+      "settings":[
         "resolution",
         "full screen",
         "v sync",
         "show fps",
         "language",
+        {
+          "keyboard mapping":[
+
+          ]
+        },
         "return"
       ]
     },
