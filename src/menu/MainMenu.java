@@ -91,7 +91,7 @@ public class MainMenu extends BasicGameState {
                 default:
                     if (choix.equals("score"))
                         stateBasedGame.enterState(2);
-                    if (choix.equals("setting"))
+                    if (choix.equals("settings"))
                         stateBasedGame.enterState(3);
                     break;
             }

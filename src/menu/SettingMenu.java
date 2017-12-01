@@ -23,7 +23,7 @@ public class SettingMenu extends BasicGameState {
     private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
-    private JSONArray scoreJson = getMenuJson().getJSONObject(chercheKeyJSONArray(getMenuJson(),"setting")).getJSONArray("setting");
+    private JSONArray scoreJson = getMenuJson().getJSONObject(chercheKeyJSONArray(getMenuJson(),"settings")).getJSONArray("settings");
 
     public SettingMenu() throws JSONException, IOException { }
 
