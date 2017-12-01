@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="slick2D">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/ibxm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/jinput.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/jnlp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/jogg-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/jorbis-0.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/lwjgl_util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/lwjgl_util_applet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/slick-examples.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/slick.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slick2d/classes/tinylinepp.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
