@@ -1,9 +1,16 @@
+package menu;
+
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 import java.io.File;
 
-public class TestLib extends BasicGame {
+public class ClassicLoader extends BasicGameState {
+
+    public static final int ID = 6;
+
     private GameContainer container;
     private TiledMap map;
     private SpriteSheet player;
@@ -18,21 +25,15 @@ public class TestLib extends BasicGame {
     private int direction = 2;
     private boolean moving = false;
 
-    public TestLib() {
-        super("JKnadR");
-    }
-
-    public static void main(String[] args) throws SlickException {
-        new AppGameContainer(new TestLib(), dimWindowX, dimWindowY, false).start();
-    }
+    @Override
+    public int getID() { return ID; }
 
     @Override
-    public void init(GameContainer container) throws SlickException {
-        this.container = container;
+    public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+        this.container = gameContainer;
         //this.map = new TiledMap("res" + File.separator + "img" + File.separator + "map" + File.separator + "knadrMap.tmx",
         //        "res" + File.separator + "img" + File.separator + "map" + File.separator + "objets");
 
-        container.setShowFPS(false);
         bgGame = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "background.png");
         bgGame2 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "2_background.png");
         bgGame3 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "3_background.png");
@@ -41,7 +42,17 @@ public class TestLib extends BasicGame {
     }
 
     @Override
-    public void render(GameContainer container, Graphics g) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame state, int delta) throws SlickException {
+        playerAnimation.update(delta);
+        updateCharacter(delta);
+
+        Input input = gc.getInput();
+
+        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) state.enterState(MainMenu.ID);
+    }
+
+    @Override
+    public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         bgGame.draw(0,0);
         bgGame2.draw(0,0);
         bgGame3.draw(0,0);
@@ -49,9 +60,8 @@ public class TestLib extends BasicGame {
     }
 
     @Override
-    public void update(GameContainer container, int delta) throws SlickException {
-        playerAnimation.update(delta);
-        updateCharacter(delta);
+    public void leave(GameContainer container, StateBasedGame game) throws SlickException {
+
     }
 
     private void updateCharacter(int delta) throws SlickException {
@@ -60,7 +70,7 @@ public class TestLib extends BasicGame {
             float futurY = getFuturY(delta);
             boolean collision = isCollision(futurX, futurY);
             if (collision) {
-               this.moving = false;
+                this.moving = false;
             }
             else {
                 this.x = futurX;
@@ -137,4 +147,3 @@ public class TestLib extends BasicGame {
         }
     }
 }
-

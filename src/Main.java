@@ -26,6 +26,7 @@ public class Main extends StateBasedGame {
             addState(new SettingMenu());
             addState(new ScoreClassic());
             addState(new ScoreAdventure());
+            addState(new ClassicLoader());
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }

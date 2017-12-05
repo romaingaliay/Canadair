@@ -10,22 +10,23 @@ import org.newdawn.slick.state.StateBasedGame;
 import java.awt.Font;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static menu.MainMenu.getMenuJson;
 import static util.JSON.chercheKeyJSONArray;
 
 public class ScoreMenu extends BasicGameState {
 
-    private final int ID = 2;
+    public static final int ID = 2;
     private int playersChoice = 0;
     private ArrayList<String> playersOptions = new ArrayList<>();
     private static int NOCHOICES;
     private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
-    private JSONArray scoreJson = getMenuJson().getJSONObject(chercheKeyJSONArray(getMenuJson(),"score")).getJSONArray("score");
+    private JSONArray scoreJson = Objects.requireNonNull(getMenuJson()).getJSONObject(chercheKeyJSONArray(getMenuJson(),"score")).getJSONArray("score");
 
-    public ScoreMenu() throws JSONException, IOException { }
+    public ScoreMenu() throws JSONException {}
 
     @Override
     public int getID() { return ID; }
@@ -62,7 +63,7 @@ public class ScoreMenu extends BasicGameState {
 
         Input input = gc.getInput();
 
-        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(1);
+        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(MainMenu.ID);
 
         if (input.isKeyPressed(Input.KEY_DOWN))
             if (playersChoice == (NOCHOICES - 1)) playersChoice = 0;
@@ -79,11 +80,14 @@ public class ScoreMenu extends BasicGameState {
                 case "return":
                     stateBasedGame.enterState(1);
                     break;
+                case "classic":
+                    stateBasedGame.enterState(ScoreClassic.ID);
+                    break;
+                case "adventure":
+                    stateBasedGame.enterState(ScoreAdventure.ID);
+                    break;
                 default:
-                    if (choix.equals("classic"))
-                        stateBasedGame.enterState(4);
-                    if (choix.equals("adventure"))
-                        stateBasedGame.enterState(5);
+                    System.out.println(choix);
                     break;
             }
         }

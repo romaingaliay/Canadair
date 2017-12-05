@@ -59,8 +59,7 @@ public class TestTuto extends BasicGame {
 
     @Override
     public void render(GameContainer container, Graphics g) throws SlickException {
-        g.translate(container.getWidth() / 2 - (int) xCamera, container.getHeight() / 2
-            - (int) yCamera);
+        g.translate(container.getWidth() / 2 - (int) xCamera, container.getHeight() / 2 - (int) yCamera);
         this.map.render(0, 0, 0);
         this.map.render(0, 0, 1);
         this.map.render(0, 0, 2);

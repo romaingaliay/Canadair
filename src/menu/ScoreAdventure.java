@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class ScoreAdventure extends BasicGameState {
 
-    private final int ID = 5;
+    public static final int ID = 5;
     private int playersChoice = 0;
     private ArrayList<String> playersOptions = new ArrayList<>();
     private ArrayList<Integer> bestScores = new ArrayList<>();
@@ -69,7 +69,7 @@ public class ScoreAdventure extends BasicGameState {
 
         Input input = gc.getInput();
 
-        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(2);
+        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(ScoreMenu.ID);
 
         if (input.isKeyPressed(Input.KEY_DOWN))
             if (playersChoice == (NOCHOICES - 1)) playersChoice = 0;
@@ -80,9 +80,14 @@ public class ScoreAdventure extends BasicGameState {
             else playersChoice--;
 
         if (input.isKeyPressed(Input.KEY_ENTER)) {
-            switch (playersOptions.get(playersChoice)) {
+            String choix = playersOptions.get(playersChoice);
+
+            switch (choix) {
                 case "return":
-                    stateBasedGame.enterState(2);
+                    stateBasedGame.enterState(ScoreMenu.ID);
+                    break;
+                default:
+                    System.out.println(choix);
                     break;
             }
         }

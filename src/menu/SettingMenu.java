@@ -8,30 +8,30 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import java.awt.Font;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static menu.MainMenu.getMenuJson;
 import static util.JSON.chercheKeyJSONArray;
 
 public class SettingMenu extends BasicGameState {
 
-    private final int ID = 3;
+    public static final int ID = 3;
     private int playersChoice = 0;
     private ArrayList<String> playersOptions = new ArrayList<>();
     private static int NOCHOICES;
     private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
-    private JSONArray scoreJson = getMenuJson().getJSONObject(chercheKeyJSONArray(getMenuJson(),"settings")).getJSONArray("settings");
+    private JSONArray scoreJson = Objects.requireNonNull(getMenuJson()).getJSONObject(chercheKeyJSONArray(getMenuJson(),"settings")).getJSONArray("settings");
 
-    public SettingMenu() throws JSONException, IOException { }
+    public SettingMenu() throws JSONException {}
 
     @Override
     public int getID() { return ID; }
 
     @Override
-    public void init(GameContainer gc, StateBasedGame stateBasedGame) throws SlickException {
+    public void init(GameContainer gc, StateBasedGame state) throws SlickException {
         try {
             Font font = new Font("Verdana", Font.BOLD, 40);
             playersOptionsTTF = new TrueTypeFont(font, true);
@@ -53,7 +53,7 @@ public class SettingMenu extends BasicGameState {
 
 
     @Override
-    public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame state, int delta) throws SlickException {
         //int xpos = Mouse.getX();
         //int ypos = Mouse.getY();
         //String mouse = "x: " + xpos + " y: " + ypos;
@@ -62,7 +62,7 @@ public class SettingMenu extends BasicGameState {
 
         Input input = gc.getInput();
 
-        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(1);
+        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) state.enterState(1);
 
         if (input.isKeyPressed(Input.KEY_DOWN))
             if (playersChoice == (NOCHOICES - 1)) playersChoice = 0;
@@ -73,19 +73,21 @@ public class SettingMenu extends BasicGameState {
             else playersChoice--;
 
         if (input.isKeyPressed(Input.KEY_ENTER)) {
-            switch (playersOptions.get(playersChoice)) {
+            String choix = playersOptions.get(playersChoice);
+
+            switch (choix) {
                 case "return":
-                    stateBasedGame.enterState(1);
+                    state.enterState(MainMenu.ID);
                     break;
                 default:
-
+                    System.out.println(choix);
                     break;
             }
         }
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
+    public void render(GameContainer gc, StateBasedGame state, Graphics g) throws SlickException {
         renderPlayersOptions();
 
         if (exit) gc.exit();

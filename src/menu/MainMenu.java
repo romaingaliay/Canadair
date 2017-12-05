@@ -1,4 +1,13 @@
 package menu;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.newdawn.slick.*;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
@@ -6,16 +15,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.newdawn.slick.*;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
-
 public class MainMenu extends BasicGameState {
 
-    private final int ID = 1;
+    public static final int ID = 1;
     private int playersChoice = 0;
     private ArrayList<String> playersOptions = new ArrayList<>();
     private static int NOCHOICES;
@@ -25,7 +27,7 @@ public class MainMenu extends BasicGameState {
     private final String adresseMenu = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "menu.json")));
     private final JSONArray menuJson = new JSONObject(adresseMenu).getJSONArray("main menu");
 
-    public MainMenu() throws IOException, JSONException { }
+    public MainMenu() throws IOException, JSONException {}
 
     static JSONArray getMenuJson() {
         try {
@@ -41,7 +43,7 @@ public class MainMenu extends BasicGameState {
     public int getID() { return ID; }
 
     @Override
-    public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+    public void init(GameContainer gc, StateBasedGame state) throws SlickException {
         try {
             Font font = new Font("Verdana", Font.BOLD, 40);
             playersOptionsTTF = new TrueTypeFont(font, true);
@@ -62,7 +64,7 @@ public class MainMenu extends BasicGameState {
     }
 
     @Override
-    public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame state, int delta) throws SlickException {
         //int xpos = Mouse.getX();
         //int ypos = Mouse.getY();
         //String mouse = "x: " + xpos + " y: " + ypos;
@@ -88,18 +90,27 @@ public class MainMenu extends BasicGameState {
                 case "quit":
                     exit = true;
                     break;
+                case "score":
+                    state.enterState(ScoreMenu.ID);
+                    break;
+                case "setting":
+                    state.enterState(SettingMenu.ID);
+                    break;
+                case "classic mode":
+                    state.enterState(ClassicLoader.ID);
+                    break;
+                case "adventure mode":
+
+                    break;
                 default:
-                    if (choix.equals("score"))
-                        stateBasedGame.enterState(2);
-                    if (choix.equals("settings"))
-                        stateBasedGame.enterState(3);
+                    System.out.println(choix);
                     break;
             }
         }
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
+    public void render(GameContainer gc, StateBasedGame state, Graphics g) throws SlickException {
         renderPlayersOptions();
 
         if (exit) gc.exit();
