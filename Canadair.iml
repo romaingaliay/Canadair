@@ -11,5 +11,6 @@
     <orderEntry type="library" name="java-json" level="project" />
     <orderEntry type="library" name="SlickUtils-1.3" level="project" />
     <orderEntry type="library" name="slick2D" level="project" />
+    <orderEntry type="library" name="slick2d" level="project" />
   </component>
 </module>
