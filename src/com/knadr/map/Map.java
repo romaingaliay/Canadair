@@ -19,9 +19,13 @@ public class Map {
                 "res" + File.separator + "img" + File.separator + "map" + File.separator + "objets");
     }
 
-    public void render() {
+    public void renderBackground() {
         this.map.render(0, 0, 0);
         this.map.render(0, 0, 1);
+        this.map.render(0, 0, 2);
+    }
+
+    public void renderForeground() {
         this.map.render(0, 0, 2);
     }
 

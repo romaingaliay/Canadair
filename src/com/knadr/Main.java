@@ -25,7 +25,7 @@ public class Main extends StateBasedGame {
         try {
             addState(new MainMenu());
             addState(new ScoreMenu());
-            addState(new SettingMenu());
+            addState(new SettingsMenu());
             addState(new ScoreClassic());
             addState(new ScoreAdventure());
             addState(new ClassicLoader());

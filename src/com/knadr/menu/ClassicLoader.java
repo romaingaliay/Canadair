@@ -12,7 +12,7 @@ import java.io.File;
 
 public class ClassicLoader extends BasicGameState {
 
-    public static final int ID = 6;
+    public static final int ID = 9;
 
     private GameContainer container;
     private Map map = new Map();
@@ -64,10 +64,14 @@ public class ClassicLoader extends BasicGameState {
 
         bgGame.draw(this.camera.xCamera - dimWindowX / 2, this.camera.yCamera - dimWindowY / 2);
         bgGame2.draw(this.player.x - vitesseParallax - this.camera.vitesse * .1f, 0);
+        bgGame3.draw(this.player.x - vitesseParallax2 - this.camera.vitesse * .2f - 1280, 0);
         bgGame3.draw(this.player.x - vitesseParallax2 - this.camera.vitesse * .2f, 0);
+        bgGame3.draw(1280 + this.player.x - vitesseParallax2 - this.camera.vitesse * .2f, 0);
+        bgGame3.draw(1280 + 1280 + this.player.x - vitesseParallax2 - this.camera.vitesse * .2f, 0);
 
-        this.map.render();
+        this.map.renderBackground();
         this.player.render();
+        this.map.renderForeground();
     }
 
     @Override

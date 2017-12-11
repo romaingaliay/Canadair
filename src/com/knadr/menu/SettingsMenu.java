@@ -14,7 +14,7 @@ import java.util.Objects;
 import static com.knadr.menu.MainMenu.getMenuJson;
 import static com.knadr.util.JSON.chercheKeyJSONArray;
 
-public class SettingMenu extends BasicGameState {
+public class SettingsMenu extends BasicGameState {
 
     public static final int ID = 3;
     private int playersChoice = 0;
@@ -25,7 +25,7 @@ public class SettingMenu extends BasicGameState {
     private Color notChosen = new Color(153, 204, 255);
     private JSONArray scoreJson = Objects.requireNonNull(MainMenu.getMenuJson()).getJSONObject(chercheKeyJSONArray(MainMenu.getMenuJson(),"settings")).getJSONArray("settings");
 
-    public SettingMenu() throws JSONException {}
+    public SettingsMenu() throws JSONException {}
 
     @Override
     public int getID() { return ID; }

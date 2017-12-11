@@ -94,7 +94,7 @@ public class MainMenu extends BasicGameState {
                     state.enterState(ScoreMenu.ID);
                     break;
                 case "settings":
-                    state.enterState(SettingMenu.ID);
+                    state.enterState(SettingsMenu.ID);
                     break;
                 case "classic mode":
                     state.enterState(ClassicLoader.ID);
