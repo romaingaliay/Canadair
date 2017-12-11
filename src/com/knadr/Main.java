@@ -1,4 +1,6 @@
-import menu.*;
+package com.knadr;
+
+import com.knadr.menu.*;
 import org.json.JSONException;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;

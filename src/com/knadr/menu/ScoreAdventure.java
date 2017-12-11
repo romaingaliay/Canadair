@@ -1,4 +1,4 @@
-package menu;
+package com.knadr.menu;
 
 import org.json.JSONArray;
 import org.json.JSONException;

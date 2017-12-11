@@ -1,4 +1,4 @@
-package map;
+package com.knadr.map;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
@@ -7,8 +7,8 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import java.io.File;
 
-import static player.Canadair.dimPlayerX;
-import static player.Canadair.dimPlayerY;
+import static com.knadr.entitie.Canadair.dimPlayerX;
+import static com.knadr.entitie.Canadair.dimPlayerY;
 
 public class Map {
 

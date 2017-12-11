@@ -1,4 +1,4 @@
-package menu;
+package com.knadr.menu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,7 +93,7 @@ public class MainMenu extends BasicGameState {
                 case "score":
                     state.enterState(ScoreMenu.ID);
                     break;
-                case "setting":
+                case "settings":
                     state.enterState(SettingMenu.ID);
                     break;
                 case "classic mode":

@@ -1,4 +1,4 @@
-package util;
+package com.knadr.util;
 
 import org.json.JSONArray;
 import org.json.JSONException;

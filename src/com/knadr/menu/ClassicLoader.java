@@ -1,10 +1,11 @@
-package menu;
+package com.knadr.menu;
 
+import com.knadr.entitie.Canadair;
+import com.knadr.menu.MainMenu;
+import com.knadr.map.Map;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import player.Canadair;
-import map.Map;
 
 import java.io.File;
 
@@ -29,7 +30,7 @@ public class ClassicLoader extends BasicGameState {
     public int getID() { return ID; }
 
     @Override
-    public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+    public void init(GameContainer gameContainer, StateBasedGame state) throws SlickException {
         this.container = gameContainer;
         dimWindowX = container.getWidth();
         dimWindowY = container.getHeight();
@@ -75,10 +76,10 @@ public class ClassicLoader extends BasicGameState {
         this.xCamera = this.player.x + Canadair.dimPlayerX / 2;
 
         /*int h = container.getHeight() / 4;
-        if (this.player.y> this.yCamera + h) {
-            this.yCamera = this.player.y - h;
-        } else if (this.player.y< this.yCamera - h) {
-            this.yCamera = this.player.y + h;
+        if (this.com.knadr.entitie.y> this.yCamera + h) {
+            this.yCamera = this.com.knadr.entitie.y - h;
+        } else if (this.com.knadr.entitie.y< this.yCamera - h) {
+            this.yCamera = this.com.knadr.entitie.y + h;
         }*/
     }
 

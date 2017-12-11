@@ -17,7 +17,7 @@ public class TestMenu extends BasicGame {
     private Color notChosen = new Color(153, 204, 255);
 
     private TestMenu() {
-        super("Slick2D Main Menu Example");
+        super("Slick2D Menu Example");
     }
 
     @Override

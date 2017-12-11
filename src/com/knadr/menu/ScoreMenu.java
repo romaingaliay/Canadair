@@ -1,37 +1,31 @@
-package menu;
+package com.knadr.menu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.*;
-import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import java.awt.Font;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class ScoreClassic extends BasicGameState {
+import static com.knadr.menu.MainMenu.getMenuJson;
+import static com.knadr.util.JSON.chercheKeyJSONArray;
 
-    public static final int ID = 4;
+public class ScoreMenu extends BasicGameState {
+
+    public static final int ID = 2;
     private int playersChoice = 0;
     private ArrayList<String> playersOptions = new ArrayList<>();
-    private ArrayList<Integer> bestScores = new ArrayList<>();
-    private ArrayList<String> pseudo = new ArrayList<>();
     private static int NOCHOICES;
     private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
-    private String adresseScore = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "score.json")));
-    private JSONArray scoresJson = new JSONObject(adresseScore).getJSONObject("Best Score").getJSONObject("classic").getJSONArray("list");
-    private int length = new JSONObject(adresseScore).getJSONObject("Best Score").getJSONObject("classic").getInt("nb");
+    private JSONArray scoreJson = Objects.requireNonNull(MainMenu.getMenuJson()).getJSONObject(chercheKeyJSONArray(MainMenu.getMenuJson(),"score")).getJSONArray("score");
 
-    public ScoreClassic() throws JSONException, IOException { }
+    public ScoreMenu() throws JSONException {}
 
     @Override
     public int getID() { return ID; }
@@ -44,12 +38,11 @@ public class ScoreClassic extends BasicGameState {
             font = new Font ("Verdana", Font.PLAIN, 20);
             TrueTypeFont foo = new TrueTypeFont(font, true);
 
-            playersOptions.add("return");
-
-            for (int i=0; i < length; i++) {
-                bestScores.add(scoresJson.getJSONObject(i).getInt("score"));
-                pseudo.add(scoresJson.getJSONObject(i).getString("pseudo"));
-            }
+            for (int i=0; i < scoreJson.length(); i++)
+                if (scoreJson.get(i).getClass().getSimpleName().equals("JSONObject"))
+                    playersOptions.add(scoreJson.getJSONObject(i).names().getString(0));
+                else if (scoreJson.get(i).getClass().getSimpleName().equals("String"))
+                    playersOptions.add(scoreJson.getString(i));
 
             NOCHOICES = playersOptions.size();
         }
@@ -69,7 +62,7 @@ public class ScoreClassic extends BasicGameState {
 
         Input input = gc.getInput();
 
-        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(ScoreMenu.ID);
+        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) stateBasedGame.enterState(MainMenu.ID);
 
         if (input.isKeyPressed(Input.KEY_DOWN))
             if (playersChoice == (NOCHOICES - 1)) playersChoice = 0;
@@ -84,7 +77,13 @@ public class ScoreClassic extends BasicGameState {
 
             switch (choix) {
                 case "return":
-                    stateBasedGame.enterState(ScoreMenu.ID);
+                    stateBasedGame.enterState(1);
+                    break;
+                case "classic":
+                    stateBasedGame.enterState(ScoreClassic.ID);
+                    break;
+                case "adventure":
+                    stateBasedGame.enterState(ScoreAdventure.ID);
                     break;
                 default:
                     System.out.println(choix);
@@ -101,15 +100,8 @@ public class ScoreClassic extends BasicGameState {
     }
 
     private void renderPlayersOptions() {
-        playersOptionsTTF.drawString(100, 30, "Classic : best score");
-
         for (int i = 0; i < playersOptions.size(); i++)
-            if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 650, playersOptions.get(i));
-            else playersOptionsTTF.drawString(100, i * 50 + 650, playersOptions.get(i), notChosen);
-
-        for (int i = 0; i < length; i++) {
-            playersOptionsTTF.drawString(100, i * 50 + 100, pseudo.get(i));
-            playersOptionsTTF.drawString(500, i * 50 + 100, String.valueOf(bestScores.get(i)));
-        }
+            if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 200, playersOptions.get(i));
+            else playersOptionsTTF.drawString(100, i * 50 + 200, playersOptions.get(i), notChosen);
     }
 }

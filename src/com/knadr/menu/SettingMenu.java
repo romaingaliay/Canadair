@@ -1,4 +1,4 @@
-package menu;
+package com.knadr.menu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,8 +11,8 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static menu.MainMenu.getMenuJson;
-import static util.JSON.chercheKeyJSONArray;
+import static com.knadr.menu.MainMenu.getMenuJson;
+import static com.knadr.util.JSON.chercheKeyJSONArray;
 
 public class SettingMenu extends BasicGameState {
 
@@ -23,7 +23,7 @@ public class SettingMenu extends BasicGameState {
     private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
-    private JSONArray scoreJson = Objects.requireNonNull(getMenuJson()).getJSONObject(chercheKeyJSONArray(getMenuJson(),"settings")).getJSONArray("settings");
+    private JSONArray scoreJson = Objects.requireNonNull(MainMenu.getMenuJson()).getJSONObject(chercheKeyJSONArray(MainMenu.getMenuJson(),"settings")).getJSONArray("settings");
 
     public SettingMenu() throws JSONException {}
 

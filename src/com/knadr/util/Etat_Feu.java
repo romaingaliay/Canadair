@@ -1,4 +1,4 @@
-package util;
+package com.knadr.util;
 
 public enum Etat_Feu {
     ALLUME("Le feu est toujours allumé"),

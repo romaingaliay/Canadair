@@ -1,4 +1,4 @@
-package util;
+package com.knadr.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

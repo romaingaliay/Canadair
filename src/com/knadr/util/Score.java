@@ -1,4 +1,4 @@
-package util;
+package com.knadr.util;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static util.Temps.getDateEpoch;
+import static com.knadr.util.Temps.getDateEpoch;
 
 public class Score {
 

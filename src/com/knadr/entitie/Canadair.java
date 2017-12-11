@@ -1,12 +1,12 @@
-package player;
+package com.knadr.entitie;
 
+import com.knadr.util.Etat_Avion;
+import com.knadr.map.Map;
 import org.newdawn.slick.*;
-import util.Etat_Avion;
 
 import java.io.File;
-import map.Map;
 
-import static util.Etat_Avion.VOL;
+import static com.knadr.util.Etat_Avion.VOL;
 
 public class Canadair {
     public Etat_Avion Etat = VOL;
@@ -15,7 +15,6 @@ public class Canadair {
     public int Reserve = 0;
     public int Monte = 0;
     public int Avance = 0;
-    //public double Vitesse = 20;
 
     private float vitesse = 5;
     private SpriteSheet player;

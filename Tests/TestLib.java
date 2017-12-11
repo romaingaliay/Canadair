@@ -5,8 +5,8 @@ import java.io.File;
 
 public class TestLib /*extends BasicGame*/ {
     /*private GameContainer container;
-    private TiledMap map;
-    private SpriteSheet player;
+    private TiledMap com.knadr.map;
+    private SpriteSheet com.knadr.entitie;
     private Animation playerAnimation;
     private Image bgGame;
     private Image bgGame2;
@@ -29,15 +29,15 @@ public class TestLib /*extends BasicGame*/ {
     @Override
     public void init(GameContainer container) throws SlickException {
         this.container = container;
-        //this.map = new TiledMap("res" + File.separator + "img" + File.separator + "map" + File.separator + "knadrMap.tmx",
-        //        "res" + File.separator + "img" + File.separator + "map" + File.separator + "objets");
+        //this.com.knadr.map = new TiledMap("res" + File.separator + "img" + File.separator + "com.knadr.map" + File.separator + "knadrMap.tmx",
+        //        "res" + File.separator + "img" + File.separator + "com.knadr.map" + File.separator + "objets");
 
         container.setShowFPS(false);
-        bgGame = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "background.png");
-        bgGame2 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "2_background.png");
-        bgGame3 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "3_background.png");
-        player = new SpriteSheet("res" + File.separator + "img" + File.separator + "player" + File.separator + "skin1.png", 260, 110);
-        playerAnimation = new Animation(player, 100);
+        bgGame = new Image("res" + File.separator + "img" + File.separator + "com.knadr.map" + File.separator + "background.png");
+        bgGame2 = new Image("res" + File.separator + "img" + File.separator + "com.knadr.map" + File.separator + "2_background.png");
+        bgGame3 = new Image("res" + File.separator + "img" + File.separator + "com.knadr.map" + File.separator + "3_background.png");
+        com.knadr.entitie = new SpriteSheet("res" + File.separator + "img" + File.separator + "com.knadr.entitie" + File.separator + "skin1.png", 260, 110);
+        playerAnimation = new Animation(com.knadr.entitie, 100);
     }
 
     @Override

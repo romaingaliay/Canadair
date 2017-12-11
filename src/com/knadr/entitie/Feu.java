@@ -1,8 +1,8 @@
-package player;
+package com.knadr.entitie;
 
-import util.Etat_Feu;
+import com.knadr.util.Etat_Feu;
 
-import static util.Etat_Feu.ALLUME;
+import static com.knadr.util.Etat_Feu.ALLUME;
 
 public class Feu {
     public double Intensite = 100;
