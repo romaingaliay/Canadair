@@ -20,7 +20,7 @@ public class Canadair {
     private SpriteSheet player;
     private Animation playerAnimation;
     public float x = 0, y = 360;
-    public static float dimPlayerX = 260, dimPlayerY = 110;
+    public static float dimPlayerX = 130, dimPlayerY = 55;
     private int direction = 1;
     private boolean moving = false;
     private Map map;
@@ -30,7 +30,7 @@ public class Canadair {
     }
 
     public void init() throws SlickException {
-        player = new SpriteSheet("res" + File.separator + "img" + File.separator + "player" + File.separator + "skin1.png", 260, 110);
+        player = new SpriteSheet("res" + File.separator + "img" + File.separator + "player" + File.separator + "skin1.png", 130, 55);
         playerAnimation = new Animation(player, 100);
     }
 
@@ -42,7 +42,7 @@ public class Canadair {
         return animation;
     }
 
-    public void render(Graphics g) {
+    public void render() {
         playerAnimation.draw(x, y);
     }
 
@@ -60,11 +60,11 @@ public class Canadair {
         }
     }
 
-    private float getFuturX(int delta) {
+    public float getFuturX(int delta) {
         return this.x + .1f * delta;
     }
 
-    private float getFuturY(int delta) {
+    public float getFuturY(int delta) {
         float futurY = this.y;
         switch (this.direction) {
             case 0:
