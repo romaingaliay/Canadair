@@ -39,7 +39,7 @@ public class ClassicLoader extends BasicGameState {
         bgGame = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "background.png");
         bgGame2 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "2_background.png");
         bgGame3 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "3_background.png");
-        player = new SpriteSheet("res" + File.separator + "img" + File.separator + "player" + File.separator + "skin2.png", 260, 110);
+        player = new SpriteSheet("res" + File.separator + "img" + File.separator + "player" + File.separator + "skin1.png", 260, 110);
         playerAnimation = new Animation(player, 100);
     }
 
