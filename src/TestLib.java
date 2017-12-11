@@ -3,8 +3,8 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import java.io.File;
 
-public class TestLib extends BasicGame {
-    private GameContainer container;
+public class TestLib /*extends BasicGame*/ {
+    /*private GameContainer container;
     private TiledMap map;
     private SpriteSheet player;
     private Animation playerAnimation;
@@ -135,6 +135,6 @@ public class TestLib extends BasicGame {
                 this.moving = true;
                 break;
         }
-    }
+    }*/
 }
 
