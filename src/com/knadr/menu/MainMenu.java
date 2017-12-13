@@ -100,7 +100,7 @@ public class MainMenu extends BasicGameState {
                     state.enterState(ClassicLoader.ID);
                     break;
                 case "adventure mode":
-
+                    state.enterState(AdventureLoader.ID);
                     break;
                 default:
                     System.out.println(choix);

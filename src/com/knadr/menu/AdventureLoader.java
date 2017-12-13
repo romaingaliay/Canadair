@@ -7,9 +7,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class KeyBoardMenu extends BasicGameState {
+public class AdventureLoader extends BasicGameState {
 
-    public static final int ID = 6;
+    public static final int ID = 10;
 
     private GameContainer container;
 

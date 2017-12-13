@@ -11,7 +11,6 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.knadr.menu.MainMenu.getMenuJson;
 import static com.knadr.util.JSON.chercheKeyJSONArray;
 
 public class SettingsMenu extends BasicGameState {
@@ -76,6 +75,12 @@ public class SettingsMenu extends BasicGameState {
             String choix = playersOptions.get(playersChoice);
 
             switch (choix) {
+                case "keyboard mapping":
+                    state.enterState(KeyBoardMenu.ID);
+                    break;
+                case "skin":
+                    state.enterState(SkinMenu.ID);
+                    break;
                 case "return":
                     state.enterState(MainMenu.ID);
                     break;

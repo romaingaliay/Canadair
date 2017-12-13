@@ -2,32 +2,27 @@ package com.knadr.menu;
 
 import com.knadr.camera.Camera;
 import com.knadr.entitie.Canadair;
-import com.knadr.menu.MainMenu;
+import com.knadr.map.Background;
 import com.knadr.map.Map;
+import com.knadr.map.Trigger;
+import com.knadr.util.Etat_Avion;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-
-import java.io.File;
 
 public class ClassicLoader extends BasicGameState {
 
     public static final int ID = 9;
 
+    private int level;
     private GameContainer container;
-    private Map map = new Map();
-    private Canadair player = new Canadair(map);
-
     public float xCamera = 640, yCamera = 360;
-    private Camera camera = new Camera(xCamera, yCamera, player);
-
-    private Image bgGame;
-    private Image bgGame2;
-    private Image bgGame3;
-    private float vitesseParallax = .25f;
-    private float vitesseParallax2 = 1.5f;
-
-    private static int dimWindowX, dimWindowY;
+    private Map map;
+    private Canadair player;
+    //private Trigger trigger;
+    private Camera camera;
+    private Background background;
+    public static int dimWindowX, dimWindowY;
 
     @Override
     public int getID() { return ID; }
@@ -38,37 +33,46 @@ public class ClassicLoader extends BasicGameState {
         dimWindowX = container.getWidth();
         dimWindowY = container.getHeight();
 
-        this.player.init();
+        this.map = new Map();
+        this.player = new Canadair(map);
+        this.camera = new Camera(xCamera, yCamera, player);
+        this.background = new Background(player, camera, map);
+        //this.trigger = new Trigger(map, player);
+
+        this.player.init(gc);
         this.map.init();
         this.camera.init(gc);
-
-        bgGame = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "background.png");
-        bgGame2 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "2_background.png");
-        bgGame3 = new Image("res" + File.separator + "img" + File.separator + "map" + File.separator + "3_background.png");
-
+        this.background.init();
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame state, int delta) throws SlickException {
         this.player.update(delta);
         this.camera.update(delta);
+        //this.trigger.update();
+
+        if (this.player.getFuturX((int) this.player.getVitesse()) > (477-22)*30) {
+            this.player.setX(0);
+            this.player.setY(this.player.getY());
+        }
 
         Input input = gc.getInput();
 
-        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) state.enterState(MainMenu.ID);
+        if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) {
+            gc.reinit();
+            state.enterState(MainMenu.ID);
+        }
+
+        if (this.player.getEtat().equals(Etat_Avion.CRASH)) {
+            gc.reinit();
+            state.enterState(MainMenu.ID);
+        }
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         this.camera.render(g);
-
-        bgGame.draw(this.camera.xCamera - dimWindowX / 2, this.camera.yCamera - dimWindowY / 2);
-        bgGame2.draw(this.player.x - vitesseParallax - this.camera.vitesse * .1f, 0);
-        bgGame3.draw(this.player.x - vitesseParallax2 - this.camera.vitesse * .2f - 1280, 0);
-        bgGame3.draw(this.player.x - vitesseParallax2 - this.camera.vitesse * .2f, 0);
-        bgGame3.draw(1280 + this.player.x - vitesseParallax2 - this.camera.vitesse * .2f, 0);
-        bgGame3.draw(1280 + 1280 + this.player.x - vitesseParallax2 - this.camera.vitesse * .2f, 0);
-
+        this.background.render();
         this.map.renderBackground();
         this.player.render();
         this.map.renderForeground();
