@@ -63,7 +63,7 @@ public class ClassicLoader extends BasicGameState {
             state.enterState(MainMenu.ID);
         }
 
-        if (this.player.getEtat().equals(Etat_Avion.CRASH)) {
+        if (this.player.getEtat().equals(Etat_Avion.CRASH) || this.player.getEtat().equals(Etat_Avion.SUBMERGE)) {
             gc.reinit();
             state.enterState(MainMenu.ID);
         }

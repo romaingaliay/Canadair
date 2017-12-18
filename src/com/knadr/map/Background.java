@@ -37,7 +37,7 @@ public class Background {
     }
     
     public void render() throws SlickException {
-        bgGame.draw(camera.xCamera - dimWindowX / 2, camera.yCamera - dimWindowY / 2);
+        bgGame.draw(camera.xCamera - dimWindowX / 2 - 5, camera.yCamera - dimWindowY / 2);
 
         for (int x = -bgGame2.getWidth(); x < width; x += bgGame2.getWidth())
             bgGame2.draw(x + player.x - camera.vitesse * vitesseParallax, 0);
