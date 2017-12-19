@@ -9,29 +9,29 @@
    H4sIAAAAAAAAC+3W1W4VARRA0d66e7EEWtwtuDv8De7Fg7uX4NIW5zPQFnd3igcvzoYnnggJDLlT9k7W6+Rkck5mYmLMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMxqThHEIg7xSEAikpCMFKQiDenIQCaykI0c5CIP+ShwXrOoLiw3FJY5rWYXpj0cjhEYiVEYjTEYi3EYjwmYiEmYjGJMwVRMw3TMwEzMCnDWoOadjTmYi3mYjwVYiEVYjCVYimVYjhVYiVVYjTVYixKsw3pswEZswmZswVZsw3bsQCnKUI6d2IXd2IO92If9OPDnr87sR2G5+bDMGW0dxCEcxhEcxTFUoBLHcQIncQqncQZncQ7ncQEXcQmX/+34UVeY9vAKruIaruMGbuIWbuMO7uIe7uMBqvAQj/AYT/AUz/AcL/ASr/Aab/AW71CN9/iAj/iEz/iCr98H4mcogljEIR4JPwnLvElIRgpSkYZ0ZCATWchGDnKRh3wUoBZqow7qoh7qowEKUYSGaITGaIKmaIbmaIGWaIXWaIO2aIf26ICO//kzO6EzuqAruqE7eqAneqE3+qAv+qE/BmAgBmEwhmAohkWC2aMgnhmWGwpizr9xl7/axyB21d32Xn73G/kNchq5JoC7AAA=
   </data>
  </layer>
- <layer name="arbre background" width="500" height="24" offsetx="-10.7593" offsety="-16.9075">
+ <layer name="arbre background" width="500" height="24" offsetx="0" offsety="-15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3YSVLrMBDG8ZA1sH1MB4C3ZbwF4x0ZDwBsGQ8AbBkPAGyB9/hYpMplLKlbToJD/r+qrlB2qy0lsmXRagEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAd9sjrdaOYlexp9hXHIz8dK8AAPh5g7RGnqhfp4ozxbniQnHZ0L4CANBPg7RG3qpfd4p7xYPiUfHUhfcR7zuNNT/UXwAAuq3Ja2TZm469Kz4U/xT/v3La4feRQ30eKY4rahXPWd5pvPmx/gIA0G1NXiPL/qhfE4pJxZRiWjHTDu+Br/R5rbipqFU8Z9lHe/Nj/e3o5v7dW4v/Hfw+dX7Tfs6Hutfq99zNvV6snafmMN6rsTHHnuup7yrWtnw+pw+W9pYc7/GOQVoj59WvBcWiYkmxrFhph/fAz/r7RfFa0dfiOcs+2psf62+HZ/8eG4u3Vk4+ms87j71tUzWsuaFrWeum+mqp4xlD7r0Sa+epOYz3amzMsd+u7tywPudDdSztLTne4x2DtkaWxfbAo/ocU4xX1CmeS+2jc/K/rOrYmmJdsaHYVGwV8qx1UmPx1srJR/N557G3baqGNTd0LWvdVF8tdTxjyL1XYu08NYfxXs19rtedG9bnfKiOpb0lx3u8F99lP9bIstgeeFafc4q/FXWK51L76Jx8C0+d2Fi8tXLy0Xzeeextm6phzQ1dy1o31VdLHc8Ycu+VWDtPzWG8V3Of63XnhvU5H6pjaW/J8R7vxXfZizXyE7xBvJeAuwAA
   </data>
  </layer>
- <layer name="objet" width="500" height="24" offsetx="-17.4825" offsety="-21.3675">
+ <layer name="objet" width="500" height="24" offsetx="0" offsety="-20">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3SwQ0AIAgEMNxO3X8g3cCHRoxpE/5wRwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALynlog2p5fsTXKtcpDTXzL69EP7ZHjGrRx/6OvGDQNjFfwqgLsAAA==
   </data>
  </layer>
- <layer name="arbre foreground" width="500" height="24" offsetx="1.53704" offsety="-15.3704">
+ <layer name="arbre foreground" width="500" height="24" offsetx="0" offsety="-15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+2WNbMUURBGdxaHBA1xS9AQt9+EW4KGD5cEDXFL0BC3BA1xS9CML9niJTvTfbcv+6bqnKqTdXfdntr6ehsNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACANFYWjcYquVqukWvlOrlebpAb5aai268EgP+NJRc2F9UZ0glR+WSdY9mnd613NnSflN+UtSe6zkuPenbJ3XKP3Cv3yf3ygDwoD1XMTX1b9E7eefyXyU9E1kXlZV/I3W7dyC3q2Sq3ye1yh9xZMseaC4cLX62XiHzKvU/O/SGelN+UtSe6zssp9ZyWZ+RZeU6elxfkRXlJXq6Ym/q26J2883J9U/hHRNZF5WV07tbpRh5R3VF5TB6XJ+TJkl5rLlwpfLVeIvIp9z4594d4Un5T1p7oOi+31XNH3pX35H35QD6Uj+Rj+aRiburbonfyzsv1TeuKJfNz3oV2sz0zyt4Wnbt1upFXVXdNXpc35E15q6TXmgtPC1+tF28+tdsz5z4594d4Um6etSe6zssb9byV7+R7+UF+lJ/kZ/lFfq2Ym/q26J2883J907piyfycdyEii8veFp27dbqRz1T3XL6QL+Ur+bqk15oL3wpfrRdvPrXbM+c+OfeHeFJunrUnus5L0Ww0mrKf7C8HyIFykBwsh8ihzfjv00lf1DtyfdO6Ysn8nHchIovL3hadu3W6kd9V90P+lL/kb/mnpNeaC8OattpUvPnUbs/ofVq13m8F3Sfl5ll7ouu8jFXPODleTpAT5SQ5WU6RU+W0irmpb4veyTsv1zetK5bMz3kXIrK47G3RuVunGzlc9SPkSDlKjpZjKmZYcmF6szpDOsGbT+32tM6x7NO71vPGVj10l5SbZ+2JrvMyTz3z5QK5UC6Si+USuVQuk8sr5qa+LXon77xc37SuWDLfexc8WReRxWVvi87dOt3IGeqZKWfJ2XKOnFsxx5ILK5rVGdIJ3nxqt6d1jmWf3rWeN7bqobuk3DxrT3Sdl9S+Tr9PJ31R78j1TeuKJfO9d8GTdRFZXPa26NztyzfyL/Y0LcyAuwAA
   </data>
  </layer>
- <layer name="hitbox" width="500" height="24" visible="0" opacity="0.25">
+ <layer name="hitbox" width="500" height="24" visible="0" opacity="0.45">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3VMQqAMBAEwPg+qxRa6f+/oYKFiAo2JhdnYPsNZJOUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKBNQ5fSvKY/ZOxKt7p37jtV3hdqE2VDUXrStgh/5FXH2nfztu92xlzpWaCEKBuK9jbRnih/5FU/KZdpfzP5Xn7YrPw70Xfpbv8jCzPBK3uAuwAA
   </data>
  </layer>
- <layer name="water" width="500" height="24" visible="0" opacity="0.25">
+ <layer name="water" width="500" height="24" opacity="0.45" offsetx="0" offsety="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3SQQkAQAgAQY1o/zLX4PwpyAxsg40AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACuq9R00Nl+1Nv8PJj9jZiAuwAA
+   H4sIAAAAAAAAC+3SQQkAQAgAQc1n/z7X4PwpyAxsg40AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACuq9R00Nl+1Nv8PPpM49SAuwAA
   </data>
  </layer>
 </map>
