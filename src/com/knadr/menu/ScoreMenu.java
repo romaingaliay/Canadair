@@ -11,7 +11,8 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.knadr.menu.MainMenu.getMenuJson;
+import static com.knadr.menu.MainMenu.getLanguage;
+import static com.knadr.menu.MainMenu.getLanguageJson;
 import static com.knadr.util.JSON.chercheKeyJSONArray;
 
 public class ScoreMenu extends BasicGameState {
@@ -23,7 +24,7 @@ public class ScoreMenu extends BasicGameState {
     private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
-    private JSONArray scoreJson = Objects.requireNonNull(MainMenu.getMenuJson()).getJSONObject(chercheKeyJSONArray(MainMenu.getMenuJson(),"score")).getJSONArray("score");
+    private JSONArray scoreJson = Objects.requireNonNull(MainMenu.getMenuJson()).getJSONObject(chercheKeyJSONArray(Objects.requireNonNull(MainMenu.getMenuJson()),"score")).getJSONArray("score");
 
     public ScoreMenu() throws JSONException {}
 
@@ -94,14 +95,18 @@ public class ScoreMenu extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-        renderPlayersOptions();
+        try {
+            if (exit)
+                gc.exit();
 
-        if (exit) gc.exit();
-    }
-
-    private void renderPlayersOptions() {
-        for (int i = 0; i < playersOptions.size(); i++)
-            if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 200, playersOptions.get(i));
-            else playersOptionsTTF.drawString(100, i * 50 + 200, playersOptions.get(i), notChosen);
+            for (int i = 0; i < playersOptions.size(); i++)
+                if (playersChoice == i)
+                    playersOptionsTTF.drawString(100, i * 50 + 200, Objects.requireNonNull(getLanguageJson()).getJSONObject(getLanguage()).getString(playersOptions.get(i)));
+                else
+                    playersOptionsTTF.drawString(100, i * 50 + 200, Objects.requireNonNull(getLanguageJson()).getJSONObject(getLanguage()).getString(playersOptions.get(i)), notChosen);
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

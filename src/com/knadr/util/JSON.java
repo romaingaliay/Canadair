@@ -13,7 +13,23 @@ public class JSON {
                         return i;
 
             return -1;
-        } catch (JSONException e) {
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public static int chercheSkin(JSONArray skin, String skinName) {
+        try {
+            for (int i=0; i < skin.length(); i++) {
+                if (skin.getJSONObject(i).getString("name").equals(skinName))
+                    return i;
+            }
+
+            return -1;
+        }
+        catch (JSONException e) {
             e.printStackTrace();
             return -1;
         }

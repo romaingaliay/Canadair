@@ -1,5 +1,6 @@
 package com.knadr.menu;
 
+import com.knadr.util.Mode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,10 +27,34 @@ public class MainMenu extends BasicGameState {
     private Color notChosen = new Color(153, 204, 255);
     private final String adresseMenu = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "menu.json")));
     private final JSONArray menuJson = new JSONObject(adresseMenu).getJSONArray("main menu");
+    public static String pseudo = "_";
+    public static Mode mode = Mode.ANY;
 
     public MainMenu() throws IOException, JSONException {}
 
-    static JSONArray getMenuJson() {
+    public static JSONObject getLanguageJson() {
+        try {
+            String adresseLanguage = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "language.json")));
+            return new JSONObject(adresseLanguage);
+        }
+        catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String getLanguage() {
+        try {
+            String adresseSettings = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "settings.json")));
+            return new JSONObject(adresseSettings).getJSONObject("settings").getString("language");
+        }
+        catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static JSONArray getMenuJson() {
         try {
             String adresseMenu = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "menu.json")));
             return new JSONObject(adresseMenu).getJSONArray("main menu");
@@ -97,10 +122,13 @@ public class MainMenu extends BasicGameState {
                     state.enterState(SettingsMenu.ID);
                     break;
                 case "classic mode":
+                    mode = Mode.CLASSIC;
                     state.enterState(ClassicLoader.ID);
+                    //state.enterState(PseudoMenu.ID);
                     break;
                 case "adventure mode":
-                    state.enterState(AdventureLoader.ID);
+                    mode = Mode.ADVENTURE;
+                    state.enterState(PseudoMenu.ID);
                     break;
                 default:
                     System.out.println(choix);
@@ -111,14 +139,21 @@ public class MainMenu extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame state, Graphics g) throws SlickException {
-        renderPlayersOptions();
+        try {
+            if (exit)
+                gc.exit();
 
-        if (exit) gc.exit();
-    }
+            String adresseLanguage = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "language.json")));
+            String adresseSettings = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "settings.json")));
+            JSONObject languageJson = new JSONObject(adresseLanguage);
+            String language = new JSONObject(adresseSettings).getJSONObject("settings").getString("language");
 
-    private void renderPlayersOptions() {
-        for (int i = 0; i < playersOptions.size(); i++)
-            if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 200, playersOptions.get(i));
-            else playersOptionsTTF.drawString(100, i * 50 + 200, playersOptions.get(i), notChosen);
+            for (int i = 0; i < playersOptions.size(); i++)
+                if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 200, languageJson.getJSONObject(language).getString(playersOptions.get(i)));
+                else playersOptionsTTF.drawString(100, i * 50 + 200, languageJson.getJSONObject(language).getString(playersOptions.get(i)), notChosen);
+        }
+        catch (JSONException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

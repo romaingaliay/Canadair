@@ -6,9 +6,12 @@ import com.knadr.map.Background;
 import com.knadr.map.Map;
 import com.knadr.map.Trigger;
 import com.knadr.util.Etat_Avion;
+import com.knadr.util.Mode;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+
+import static com.knadr.menu.MainMenu.mode;
 
 public class ClassicLoader extends BasicGameState {
 
@@ -51,19 +54,23 @@ public class ClassicLoader extends BasicGameState {
         this.camera.update(delta);
         //this.trigger.update();
 
+        /**trigger*/
         if (this.player.getFuturX((int) this.player.getVitesse()) > (477-22)*30) {
             this.player.setX(0);
             this.player.setY(this.player.getY());
         }
+        /***/
 
         Input input = gc.getInput();
 
         if (input.isKeyPressed(Input.KEY_ESCAPE) || input.isKeyPressed(Input.KEY_BACK)) {
+            mode = Mode.ANY;
             gc.reinit();
             state.enterState(MainMenu.ID);
         }
 
         if (this.player.getEtat().equals(Etat_Avion.CRASH) || this.player.getEtat().equals(Etat_Avion.SUBMERGE)) {
+            mode = Mode.ANY;
             gc.reinit();
             state.enterState(MainMenu.ID);
         }

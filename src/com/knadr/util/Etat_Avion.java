@@ -9,9 +9,7 @@ public enum Etat_Avion {
 
     private String txt;
 
-    Etat_Avion(String txt){
-        this.txt = txt;
-    }
+    Etat_Avion(String txt){ this.txt = txt; }
 
     @Override
     public String toString() { return txt; }

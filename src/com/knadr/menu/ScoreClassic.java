@@ -1,6 +1,5 @@
 package com.knadr.menu;
 
-import com.knadr.util.Tri;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +15,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Objects;
 
+import static com.knadr.menu.MainMenu.getLanguage;
+import static com.knadr.menu.MainMenu.getLanguageJson;
 import static com.knadr.util.Tri.TriScore;
 
 public class ScoreClassic extends BasicGameState {
@@ -27,7 +29,6 @@ public class ScoreClassic extends BasicGameState {
     private ArrayList<Integer> bestScores = new ArrayList<>();
     private ArrayList<String> pseudo = new ArrayList<>();
     private static int NOCHOICES;
-    private boolean exit = false;
     private TrueTypeFont playersOptionsTTF;
     private Color notChosen = new Color(153, 204, 255);
     private String adresseScore = new String(Files.readAllBytes(Paths.get("res" + File.separator + "fileGame" + File.separator + "score.json")));
@@ -53,7 +54,9 @@ public class ScoreClassic extends BasicGameState {
                 bestScores.add(scoresJson.getJSONObject(i).getInt("score"));
                 pseudo.add(scoresJson.getJSONObject(i).getString("pseudo"));
             }
-            TriScore(pseudo,bestScores);
+
+            TriScore(pseudo, bestScores);
+
             NOCHOICES = playersOptions.size();
         }
         catch (JSONException e) {
@@ -98,21 +101,20 @@ public class ScoreClassic extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-        renderPlayersOptions();
+        try {
+            playersOptionsTTF.drawString(100, 30, Objects.requireNonNull(getLanguageJson()).getJSONObject(getLanguage()).getString("Classic : best score"), notChosen);
 
-        if (exit) gc.exit();
-    }
+            for (int i = 0; i < playersOptions.size(); i++)
+                if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 650, getLanguageJson().getJSONObject(getLanguage()).getString(playersOptions.get(i)));
+                else playersOptionsTTF.drawString(100, i * 50 + 650, getLanguageJson().getJSONObject(getLanguage()).getString(playersOptions.get(i)), notChosen);
 
-    private void renderPlayersOptions() {
-        playersOptionsTTF.drawString(100, 30, "Classic : best score");
-
-        for (int i = 0; i < playersOptions.size(); i++)
-            if (playersChoice == i) playersOptionsTTF.drawString(100, i * 50 + 650, playersOptions.get(i));
-            else playersOptionsTTF.drawString(100, i * 50 + 650, playersOptions.get(i), notChosen);
-
-        for (int i = 0; i < length; i++) {
-            playersOptionsTTF.drawString(100, i * 50 + 100, pseudo.get(i));
-            playersOptionsTTF.drawString(500, i * 50 + 100, String.valueOf(bestScores.get(i)));
+            for (int i = 0; i < length; i++) {
+                playersOptionsTTF.drawString(100, i * 50 + 100, pseudo.get(i), notChosen);
+                playersOptionsTTF.drawString(500, i * 50 + 100, String.valueOf(bestScores.get(i)), notChosen);
+            }
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

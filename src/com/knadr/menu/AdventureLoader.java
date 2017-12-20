@@ -22,11 +22,6 @@ public class AdventureLoader extends BasicGameState {
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame state, Graphics graphics) throws SlickException {
-
-    }
-
-    @Override
     public void update(GameContainer gc, StateBasedGame state, int delta) throws SlickException {
 
         Input input = gc.getInput();
@@ -35,5 +30,10 @@ public class AdventureLoader extends BasicGameState {
             gc.reinit();
             state.enterState(MainMenu.ID);
         }
+    }
+
+    @Override
+    public void render(GameContainer gc, StateBasedGame state, Graphics graphics) throws SlickException {
+
     }
 }
