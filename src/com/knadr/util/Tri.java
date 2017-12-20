@@ -20,6 +20,8 @@ public class Tri {
                     scoret=bestScores.get(i);
                     bestScores.set(i,bestScores.get(i+1));
                     bestScores.set(i+1,scoret);
+
+
                 }
         }
 
