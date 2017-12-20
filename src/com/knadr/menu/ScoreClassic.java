@@ -1,5 +1,6 @@
 package com.knadr.menu;
 
+import com.knadr.util.Tri;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+
+import static com.knadr.util.Tri.TriScore;
 
 public class ScoreClassic extends BasicGameState {
 
@@ -50,7 +53,7 @@ public class ScoreClassic extends BasicGameState {
                 bestScores.add(scoresJson.getJSONObject(i).getInt("score"));
                 pseudo.add(scoresJson.getJSONObject(i).getString("pseudo"));
             }
-
+            TriScore(pseudo,bestScores);
             NOCHOICES = playersOptions.size();
         }
         catch (JSONException e) {
